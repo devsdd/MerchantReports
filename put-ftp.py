@@ -46,7 +46,6 @@ def connect_sftp():
         raise
     return sftp
 
-# pass it an existing connection object so as to not open a new connection for each file
 def upload_files(files):
     uploadConfig = load_config("ftp_upload_creds.yaml")
 
