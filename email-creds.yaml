@@ -1,0 +1,4 @@
+---
+emailAddress: <YOUR_IMAP_USERNAME>
+password: <YOUR_IMAP_PASSWORD>
+IMAPserver: <YOUR_IMAP_SERVER>

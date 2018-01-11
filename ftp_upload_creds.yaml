@@ -1,0 +1,6 @@
+---
+ftpServer: <YOUR_FTP_SERVER>
+port: <FTP_SERVER_PORT>
+user: <YOUR_FTP_SERVER>
+password: <YOUR_FTP_SERVER>
+uploadDir: <FTP_UPLOAD_DIR> 

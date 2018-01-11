@@ -1,0 +1,50 @@
+---
+SFTP:
+  Litle:
+    active: "True"
+    URL: "reports.litle.com"
+    user: <LITLE_USERNAME>
+    password: <LITLE_PASSWORD>
+    ftpDir: "reports"
+    fileStrings:
+      - "Financial_Detail_ChargebackFinancialBySettlementDate0_PREFIX1_"
+      - "Financial_Summary_SettlementReport0_PREFIX2_"
+      - "Financial_Detail_NssByTxnBySettlementDate0NegativeRefund_PREFIX3_"
+    dateFormat: "%Y%m%d"
+    fileExtension: ".CSV"
+
+  Alipay:
+    active: "True"
+    URL: "sftp.alipay.com"
+    user: <ALIPAY_USERNAME>
+    password: <ALIPAY_PASSWORD>
+    ftpDir: "download"
+    fileStrings:
+      - <YOUR_PREFIX>
+    dateFormat: "%Y%m%d"
+    fileExtension: ".zip"
+
+Email:
+  ICICI:
+    fromAddress: "customer.care@icici.mailserv.in"
+    merchantID:
+      - <MERCHANT ID 1> 
+      - <MERCHANT ID 2>
+      - <MERCHANT ID 3>
+  CCAvenue:
+    fromAddress: "accounts@ccavenue.com"
+
+  PayU_Latam:
+    fromAddress: "info@payulatam.com"
+
+  PayU_India:
+    fromAddress: "payment-report@payu.in"
+
+  WebMoney:
+    fromAddress: "report@wmtransfer.com"
+
+  pay.pw:
+    fromAddress: "root@one.pay.pw"
+
+  EBANX:
+    fromAddress: "merchants@ebanx.com"
