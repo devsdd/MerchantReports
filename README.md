@@ -4,6 +4,16 @@ Any E-commerce site may be using multiple banks and/or payment gateways for thei
 
 This project is for automating the process of manually logging into multiple FTP servers and Email accounts, downloading the reports to a single location, and then uploading them all to another FTP server of our own. Though the code can be institution-specific (marked as such in the comments) due to each institution's quirks, it is intended to also be generic enough that it shouldn't be too difficult to modify it to suit another payment gateway or bank.
 
+This project currently supports getting merchant reports from the following financial institutions:
++ Litle
++ Alipay
++ ICICI Bank
++ CCAvenue
++ PayU (both Latin American and Indian arms)
++ WebMoney
++ Pay.pw
++ EBANX
+
 The [download_settings.yaml](https://github.com/devsdd/MerchantReports/blob/master/download_settings.yaml) file contains a hash of gateways and providers organized according to the method in which we access their reports (SFTP, Email etc.) along with the credentials, FTP locations and filenames for each of them. This is used by the scripts [get-ftp.py](https://github.com/devsdd/MerchantReports/blob/master/get-ftp.py) and [extract_email_reports.py](https://github.com/devsdd/MerchantReports/blob/master/extract_email_reports.py).
 
 The [email-creds.yaml](https://github.com/devsdd/MerchantReports/blob/master/email-creds.yaml) file contains the credentials to access the email account to which the institutions send the reports. This is used by the script [extract_email_reports.py](https://github.com/devsdd/MerchantReports/blob/master/extract_email_reports.py).
