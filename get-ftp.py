@@ -78,7 +78,7 @@ def get_files_using_pysftp(gateway, config, files):
 
 if __name__ == "__main__":
 
-    yamlConfig = load_config("creds.yaml")
+    yamlConfig = load_config("download_settings.yaml")
     sftpGateways = list(yamlConfig["SFTP"])
 
     for gateway in sftpGateways:

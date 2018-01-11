@@ -152,7 +152,7 @@ def parse_emails(conn, gateway, config, mailboxConfig):
 
 if __name__ == "__main__":
 
-    gatewayConfig = load_config("creds.yaml")
+    gatewayConfig = load_config("download_settings.yaml")
     mailboxConfig = load_config("email-creds.yaml")
     emailGateways = list_email_gateways(gatewayConfig)
 

@@ -4,7 +4,7 @@ import logging.handlers
 def log_action(status, message, access_method):
 
     logger = logging.getLogger(access_method)
-    handler = logging.FileHandler("/home/sid/code/action.log")
+    handler = logging.FileHandler(</PATH/TO/LOG/FILE>)
 
     #add formatter to the handler
     formatter = logging.Formatter('%(asctime)s %(name)s %(levelname)s: "%(message)s"', datefmt="%Y-%m-%d %H:%M:%S")
