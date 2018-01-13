@@ -63,13 +63,16 @@ def forward_email(yamlConfig, to_addr, msg):
 def parse_emails(conn, gateway, config, mailboxConfig):
     fromAddress = config["Email"][gateway]["fromAddress"]
 
+    # switch to the IMAP folder called "INBOX"
     retVal, data = conn.select("INBOX")
     if retVal != "OK":
         log_action("ERROR", "Failed to select Inbox folder, aborting...", "Email")
         sys.exit(1)
 
+    # Unread mails are marked with status "UNSEEN" as per IMAP
     retVal, data = conn.search(None, "FROM", fromAddress, "UNSEEN")
     if retVal != "OK":
+        # should this be an ERROR? Depends on whether mail is expected *everytime* this runs
         log_action("ERROR", "No new emails", "Email")
         sys.exit(1)
 
