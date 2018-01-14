@@ -8,6 +8,9 @@ from yamlConfig import load_config
 from syslog_writer import log_action
 from make_local_dirs import create_local_dirs_if_missing
 
+# where all our config data is located relative to our code:
+CONFIG_DIR = "config/"
+
 def date_format_yesterday(formatString):
 
     today = datetime.datetime.today()
@@ -78,7 +81,7 @@ def get_files_using_pysftp(gateway, config, files):
 
 if __name__ == "__main__":
 
-    yamlConfig = load_config("download_settings.yaml")
+    yamlConfig = load_config(CONFIG_DIR +  "download_settings.yaml")
     sftpGateways = list(yamlConfig["SFTP"])
 
     for gateway in sftpGateways:

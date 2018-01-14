@@ -11,6 +11,9 @@ import zipfile
 from yamlConfig import load_config
 from syslog_writer import log_action
 
+# where all our config data is located relative to our code:
+CONFIG_DIR = "config/"
+
 def files_list(baseDir):
     fullPathsFileList = []
 
@@ -22,7 +25,7 @@ def files_list(baseDir):
 
 # This function is currently buggy and useless
 def connect_sftp():
-    uploadConfig = load_config("us_ftp.yaml")
+    uploadConfig = load_config(CONFIG_DIR + "ftp_upload_creds.yaml")
 
     ftpServer = uploadConfig["ftpServer"]
     ftpPort = uploadConfig["port"]
@@ -47,7 +50,7 @@ def connect_sftp():
     return sftp
 
 def upload_files(files):
-    uploadConfig = load_config("ftp_upload_creds.yaml")
+    uploadConfig = load_config(CONFIG_DIR + "ftp_upload_creds.yaml")
 
     ftpServer = uploadConfig["ftpServer"]
     ftpPort = uploadConfig["port"]

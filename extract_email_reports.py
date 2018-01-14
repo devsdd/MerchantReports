@@ -12,6 +12,9 @@ from yamlConfig import load_config
 from syslog_writer import log_action
 from make_local_dirs import create_local_dirs_if_missing
 
+# where all our config data is located relative to our code:
+CONFIG_DIR = "config/"
+
 def list_email_gateways(config):
     emailGateways = list(config["Email"])
     return emailGateways
@@ -155,8 +158,8 @@ def parse_emails(conn, gateway, config, mailboxConfig):
 
 if __name__ == "__main__":
 
-    gatewayConfig = load_config("download_settings.yaml")
-    mailboxConfig = load_config("email-creds.yaml")
+    gatewayConfig = load_config(CONFIG_DIR + "download_settings.yaml")
+    mailboxConfig = load_config(CONFIG_DIR +"email-creds.yaml")
     emailGateways = list_email_gateways(gatewayConfig)
 
     conn = connect_IMAP(mailboxConfig)
