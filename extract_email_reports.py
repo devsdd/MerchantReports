@@ -30,12 +30,11 @@ def connect_IMAP(yamlConfig):
     except:
         log_action("ERROR", "Failed to establish %s connection to server %s" % ("IMAP", IMAPserver), "Email")
         raise
-    else:
-        try:
-            connection.login(IMAPuserName, IMAPpassword)
-        except:
-            log_action("ERROR", "IMAP authentication failed for user %s on %s" % (IMAPuserName, IMAPserver), "Email")
-            raise
+    try:
+        connection.login(IMAPuserName, IMAPpassword)
+    except:
+        log_action("ERROR", "IMAP authentication failed for user %s on %s" % (IMAPuserName, IMAPserver), "Email")
+        raise
 
     return connection
 
@@ -50,12 +49,11 @@ def forward_email(yamlConfig, to_addr, msg):
     except:
         log_action("ERROR", "Failed to establish %s connection to server %s" % ("SMTP", SMTPserver), "Email")
         raise
-    else:
-        try:
-            smtpObj.login(SMTPuserName, SMTPpassword)
-        except:
-            log_action("ERROR", "SMTP authentication failed for user %s on %s" % (SMTPuserName, SMTPserver), "Email")
-            raise
+    try:
+        smtpObj.login(SMTPuserName, SMTPpassword)
+    except:
+        log_action("ERROR", "SMTP authentication failed for user %s on %s" % (SMTPuserName, SMTPserver), "Email")
+        raise
 
     smtpObj.sendmail(SMTPuserName, to_addr, msg.as_string())
     smtpObj.quit
